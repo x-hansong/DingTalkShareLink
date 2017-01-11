@@ -1,0 +1,21 @@
+{
+  "name": "分享当前页面到钉钉群",
+  "description": "通过钉钉群机器人将当前页面分享到群里面",
+  "version": "1.0.0",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "icons": { "128": "dingding.png" },
+  "options_page": "options.html",
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*", "notifications"
+  ],
+  "browser_action": {
+    "default_title": "分享当前页面到钉钉群",
+    "default_icon": "dingding.png",
+    "default_popup": "popup.html"
+  },
+
+  "manifest_version": 2
+}
