@@ -9,7 +9,7 @@
   "icons": { "128": "dingding.png" },
   "options_page": "options.html",
   "permissions": [
-    "tabs", "http://*/*", "https://*/*", "notifications"
+    "tabs", "http://*/*", "https://*/*", "notifications","storage"
   ],
   "browser_action": {
     "default_title": "分享当前页面到钉钉群",

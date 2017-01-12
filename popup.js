@@ -5,4 +5,7 @@ $(document).ready(function() {
 		});
 		window.close();
 	});
+	$('#option-btn').click(function(){
+		window.location.href="options.html";
+	});
 });

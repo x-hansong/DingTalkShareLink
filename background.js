@@ -1,5 +1,9 @@
-var dingTalkMachineApi = 'https://oapi.dingtalk.com/robot/send?access_token=2ed2b79ab1acf722727fc6ed6256edfb2fe3c595dc139be0899d6ea630d29c27'
-// var dingTalkMachineApi = 'https://oapi.dingtalk.com/robot/send?access_token=23dd2cfb66c5d63e61c821288a4695b51488ef0dc1e72a9aabbf7208c0d47b4e'
+var dingTalkMachineApi;
+chrome.storage.sync.get('api_url', function(items) {
+	if(items.api_url) {
+		dingTalkMachineApi = items.api_url;
+	}
+});
 
 function sendToDingTalkGroup(info) {
 	var xhr = new XMLHttpRequest();
@@ -11,6 +15,13 @@ function sendToDingTalkGroup(info) {
 			});
 		}
 	};
+	if(!dingTalkMachineApi) {
+		new Notification('发送结果', {
+			icon: 'dingding.png',
+			body: '钉钉机器人api地址未配置，点击选项进行配置'
+		});
+		return;
+	}
 	xhr.open("POST", dingTalkMachineApi, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
 	xhr.send(JSON.stringify(info));
